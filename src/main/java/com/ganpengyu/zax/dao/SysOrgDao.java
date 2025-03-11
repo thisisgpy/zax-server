@@ -26,6 +26,13 @@ public interface SysOrgDao {
     int updateSelective(SysOrg sysOrg);
 
     /**
+     * 删除组织
+     * @param orgIds 组织 ID 列表
+     * @return 影响行数
+     */
+    int delete(List<Long> orgIds);
+
+    /**
      * 查询指定组织
      * @param id 组织 ID
      * @return {@link SysOrg} 组织信息

@@ -63,6 +63,13 @@
         where id = #{id}
     </update>
 
+    <delete id="delete">
+        delete from sys_org where id in
+        <foreach collection="list" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
     <select id="selectById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

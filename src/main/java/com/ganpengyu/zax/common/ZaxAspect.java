@@ -31,6 +31,7 @@ public class ZaxAspect {
      */
     @Around("execute()")
     public Object handlerControllerMethod(ProceedingJoinPoint pjp) {
+        UserContext.setContext("admin");
         ZaxResult<?> result;
         StopWatch stopWatch = new StopWatch();
         try {
@@ -38,6 +39,8 @@ public class ZaxAspect {
             log.info("{} cost time {} ms", pjp.getSignature(), stopWatch.getElapse());
         } catch (Throwable e) { // 处理异常
             result = handlerException(pjp, e);
+        } finally {
+            UserContext.removeContext();
         }
         return result;
     }
