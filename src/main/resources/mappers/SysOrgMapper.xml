@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ganpengyu.zax.dao.SysOrgDao">
+    <resultMap id="BaseResultMap" type="com.ganpengyu.zax.model.SysOrg">
+        <!--@mbg.generated-->
+        <!--@Table sys_org-->
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
+        <result column="name_abbr" property="nameAbbr"/>
+        <result column="comment" property="comment"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        code,
+        `name`,
+        name_abbr,
+        `comment`,
+        parent_id,
+        create_time,
+        create_by,
+        update_time,
+        update_by
+    </sql>
+
+    <insert id="insert" parameterType="com.ganpengyu.zax.model.SysOrg">
+        insert into sys_org (id, code, `name`, name_abbr, `comment`, parent_id, create_time, create_by)
+        values (#{id}, #{code}, #{name}, #{nameAbbr}, #{comment}, #{parentId}, #{createTime}, #{createBy})
+    </insert>
+
+    <update id="updateSelective" parameterType="com.ganpengyu.zax.model.SysOrg">
+        update sys_org
+        <set>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="name != null">
+                `name` = #{name},
+            </if>
+            <if test="nameAbbr != null">
+                name_abbr = #{nameAbbr},
+            </if>
+            <if test="comment != null">
+                `comment` = #{comment},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_org
+        where id = #{id}
+    </select>
+
+    <select id="selectByParentId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_org
+        where parent_id = #{parentId}
+        order by `code`
+    </select>
+
+    <select id="selectByCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_org
+        where code = #{code}
+    </select>
+
+    <select id="selectMaxCode" resultType="string">
+        select max(code)
+        from sys_org
+        where parent_id = #{parentId}
+    </select>
+
+    <select id="selectDescendants" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_org
+        where code like concat(#{code}, '%')
+          and code != #{code}
+        order by create_time
+    </select>
+</mapper>
