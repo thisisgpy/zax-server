@@ -1,5 +1,7 @@
 package com.ganpengyu.zax.common;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */
+@Data
 public class ZaxResult<T> implements Serializable {
 
     private boolean success;

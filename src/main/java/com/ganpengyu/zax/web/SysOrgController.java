@@ -71,7 +71,7 @@ public class SysOrgController {
 
     @GetMapping(value = "/trees/{rootOrgId}")
     public ZaxResult<List<SysOrgTree>> getOrgTrees(@PathVariable(name = "rootOrgId", required = false) Long rootOrgId) {
-        if (rootOrgId != null) {
+        if (rootOrgId == null) {
             rootOrgId = 0L;
         }
         List<SysOrgTree> orgTrees = sysOrgService.getOrgTrees(rootOrgId);

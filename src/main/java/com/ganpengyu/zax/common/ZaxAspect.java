@@ -39,6 +39,7 @@ public class ZaxAspect {
             log.info("{} cost time {} ms", pjp.getSignature(), stopWatch.getElapse());
         } catch (Throwable e) { // 处理异常
             result = handlerException(pjp, e);
+            log.info("[Execute Error] {} cost time {} ms", pjp.getSignature(), stopWatch.getElapse());
         } finally {
             UserContext.removeContext();
         }
