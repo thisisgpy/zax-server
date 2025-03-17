@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ganpengyu.zax.dao.SysDictItemDao">
+    <resultMap id="BaseResultMap" type="com.ganpengyu.zax.model.SysDictItem">
+        <!--@mbg.generated-->
+        <!--@Table sys_dict_item-->
+        <id column="id" property="id"/>
+        <result column="dict_id" property="dictId"/>
+        <result column="dict_code" property="dictCode"/>
+        <result column="label" property="label"/>
+        <result column="value" property="value"/>
+        <result column="comment" property="comment"/>
+        <result column="sort" property="sort"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="is_enabled" property="enabled"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        dict_id,
+        dict_code,
+        `label`,
+        `value`,
+        `comment`,
+        sort,
+        parent_id,
+        is_enabled,
+        create_time,
+        create_by,
+        update_time,
+        update_by
+    </sql>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_item
+        where id = #{id}
+    </select>
+
+    <select id="selectByDictId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_item
+        where dict_id = #{dictId}
+          and is_enabled = true
+        order by sort
+    </select>
+
+    <select id="selectByDictCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_item
+        where dict_code = #{dictCode}
+          and is_enabled = true
+        order by sort
+    </select>
+
+    <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_item
+        where parent_id = #{parentId}
+          and is_enabled = true
+        order by sort
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from sys_dict_item
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.ganpengyu.zax.model.SysDictItem">
+        <!--@mbg.generated-->
+        insert into sys_dict_item (dict_id, dict_code, `label`, `value`, `comment`, sort, parent_id,
+                                   is_enabled, create_time, create_by, update_time, update_by)
+        values (#{dictId}, #{dictCode}, #{label}, #{value}, #{comment}, #{sort}, #{parentId},
+                #{enabled}, #{createTime}, #{createBy}, #{updateTime}, #{updateBy})
+    </insert>
+
+    <update id="updateSelective" parameterType="com.ganpengyu.zax.model.SysDictItem">
+        update sys_dict_item
+        <set>
+            <if test="label != null">
+                `label` = #{label},
+            </if>
+            <if test="value != null">
+                `value` = #{value},
+            </if>
+            <if test="comment != null">
+                `comment` = #{comment},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="enabled != null">
+                is_enabled = #{enabled},
+            </if>
+            update_time = #{updateTime},
+            update_by   = #{updateBy}
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
