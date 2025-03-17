@@ -1,5 +1,6 @@
 package com.ganpengyu.zax.dao;
 
+import com.ganpengyu.zax.common.page.Paging;
 import com.ganpengyu.zax.model.SysDict;
 import org.apache.ibatis.annotations.Param;
 
@@ -38,14 +39,7 @@ public interface SysDictDao {
      * @param sysDict {@link SysDict} 字典信息
      * @return 字典列表
      */
-    List<SysDict> list(@Param("condition") SysDict sysDict, @Param("offset") Integer offset, @Param("limit") Integer limit);
-
-    /**
-     * 查询字典总数
-     * @param sysDict {@link SysDict} 字典信息
-     * @return 字典总数
-     */
-    int count(SysDict sysDict);
+    List<SysDict> list(@Param("condition") SysDict sysDict, Paging paging);
 
     /**
      * 删除字典

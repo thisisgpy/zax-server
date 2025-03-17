@@ -3,8 +3,8 @@ CREATE TABLE
     `sys_dict`
 (
     `id`          INT(11) AUTO_INCREMENT COMMENT '字典ID',
-    `code`        VARCHAR(64) NOT NULL COMMENT '字典编码',
-    `name`        VARCHAR(64) NOT NULL COMMENT '字典名称',
+    `code`        VARCHAR(64) UNIQUE NOT NULL COMMENT '字典编码',
+    `name`        VARCHAR(64) UNIQUE NOT NULL COMMENT '字典名称',
     `comment`     VARCHAR(128) COMMENT '字典备注',
     `is_enabled`  TINYINT(1) DEFAULT 1 COMMENT '是否启用. 0: 禁用, 1: 启用',
     `create_time` DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

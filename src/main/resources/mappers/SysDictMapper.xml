@@ -52,23 +52,6 @@
             </if>
         </where>
         order by create_time desc
-        limit #{offset}, #{limit}
-    </select>
-
-    <select id="count" resultType="java.lang.Integer">
-        select count(1)
-        from sys_dict
-        <where>
-            <if test="code != null">
-                code like concat('%', #{code}, '%')
-            </if>
-            <if test="name != null">
-                and `name` like concat('%', #{name}, '%')
-            </if>
-            <if test="enabled != null">
-                and is_enabled = #{enabled}
-            </if>
-        </where>
     </select>
 
     <delete id="delete" parameterType="java.lang.Integer">
@@ -78,10 +61,10 @@
         where id = #{id}
     </delete>
 
-    <insert id="insert" parameterType="com.ganpengyu.zax.model.SysDict">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ganpengyu.zax.model.SysDict">
         <!--@mbg.generated-->
-        insert into sys_dict (code, `name`, `comment`, is_enabled, create_time, create_by)
-        values (#{code}, #{name}, #{comment}, #{enabled}, #{createTime}, #{createBy})
+        insert into sys_dict (code, `name`, `comment`, create_time, create_by)
+        values (#{code}, #{name}, #{comment}, #{createTime}, #{createBy})
     </insert>
 
     <update id="updateSelective" parameterType="com.ganpengyu.zax.model.SysDict">
