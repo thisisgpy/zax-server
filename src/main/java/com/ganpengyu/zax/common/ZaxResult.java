@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 接口统一返回数据模型
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */

@@ -1,57 +1,38 @@
-package com.ganpengyu.zax.model;
+package com.ganpengyu.zax.web.vo.response;
 
+import com.ganpengyu.zax.service.dto.SysDictItemTree;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 /**
- * 数据字典项
+ * 数据字典详情
  *
  * @author Pengyu Gan
  * CreateDate 2025/3/17
  */
 @Data
-public class SysDictItem {
-
-    /**
-     * 字典项ID
-     */
-    private Integer id;
+public class SysDictVO {
 
     /**
      * 字典ID
      */
-    private Integer dictId;
+    private Integer id;
 
     /**
      * 字典编码
      */
-    private String dictCode;
+    private String code;
 
     /**
-     * 字典项标签
+     * 字典名称
      */
-    private String label;
+    private String name;
 
     /**
-     * 字典项值
-     */
-    private String value;
-
-    /**
-     * 字典项备注
+     * 字典备注
      */
     private String comment;
-
-    /**
-     * 字典项排序
-     */
-    private Integer sort;
-
-    /**
-     * 父级字典项ID. 0表示没有父级字典项
-     */
-    private Integer parentId;
 
     /**
      * 是否启用. 0: 禁用, 1: 启用
@@ -77,4 +58,9 @@ public class SysDictItem {
      * 信息更新人
      */
     private String updateBy;
+
+    /**
+     * 字典项
+     */
+    private SysDictItemTree items;
 }

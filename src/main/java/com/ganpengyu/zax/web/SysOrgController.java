@@ -9,7 +9,6 @@ import com.ganpengyu.zax.web.vo.request.SysOrgCreateVO;
 import com.ganpengyu.zax.web.vo.request.SysOrgUpdateVO;
 import com.ganpengyu.zax.web.vo.response.SysOrgVO;
 import jakarta.annotation.Resource;
-
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +16,7 @@ import java.util.List;
 
 /**
  * 组织接口
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */
@@ -31,10 +31,11 @@ public class SysOrgController {
     private OrgBeanMapper orgBeanMapper;
 
     @PostMapping(value = "/create")
-    public ZaxResult<SysOrg> createOrg(@RequestBody @Valid SysOrgCreateVO sysOrgCreateVO) {
+    public ZaxResult<SysOrgVO> createOrg(@RequestBody @Valid SysOrgCreateVO sysOrgCreateVO) {
         SysOrg sysOrg = orgBeanMapper.toSysOrg(sysOrgCreateVO);
         SysOrg org = sysOrgService.createOrg(sysOrg);
-        return ZaxResult.ok(org);
+        SysOrgVO sysOrgVO = orgBeanMapper.toSysOrgVO(org);
+        return ZaxResult.ok(sysOrgVO);
     }
 
     @PostMapping(value = "/edit")

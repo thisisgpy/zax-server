@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * 组织
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */
@@ -13,6 +14,7 @@ public interface SysOrgDao {
 
     /**
      * 新增组织
+     *
      * @param sysOrg {@link SysOrg} 组织信息
      * @return 影响行数
      */
@@ -20,6 +22,7 @@ public interface SysOrgDao {
 
     /**
      * 更新组织信息
+     *
      * @param sysOrg {@link SysOrg} 组织信息
      * @return 影响行数
      */
@@ -27,6 +30,7 @@ public interface SysOrgDao {
 
     /**
      * 删除组织
+     *
      * @param orgIds 组织 ID 列表
      * @return 影响行数
      */
@@ -34,6 +38,7 @@ public interface SysOrgDao {
 
     /**
      * 查询指定组织
+     *
      * @param id 组织 ID
      * @return {@link SysOrg} 组织信息
      */
@@ -41,6 +46,7 @@ public interface SysOrgDao {
 
     /**
      * 查询指定父组织的子组织
+     *
      * @param parentId 父组织 ID
      * @return {@link SysOrg} 子组织集合
      */
@@ -48,6 +54,7 @@ public interface SysOrgDao {
 
     /**
      * 根据组织编码查询组织
+     *
      * @param code 组织编码
      * @return {@link SysOrg} 组织信息
      */
@@ -55,6 +62,7 @@ public interface SysOrgDao {
 
     /**
      * 根据组织编码查询其下当前已用最大编码
+     *
      * @param parentId 父组织 ID
      * @return 其下当前已用最大编码
      */
@@ -62,6 +70,7 @@ public interface SysOrgDao {
 
     /**
      * 查询指定组织下的全部子孙组织
+     *
      * @param code 组织编码
      * @return {@link SysOrg} 子孙组织集合
      */

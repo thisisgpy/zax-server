@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 
 /**
  * 编辑组织
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/12
  */

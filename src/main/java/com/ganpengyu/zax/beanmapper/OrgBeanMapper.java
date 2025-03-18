@@ -5,7 +5,10 @@ import com.ganpengyu.zax.service.dto.SysOrgTree;
 import com.ganpengyu.zax.web.vo.request.SysOrgCreateVO;
 import com.ganpengyu.zax.web.vo.request.SysOrgUpdateVO;
 import com.ganpengyu.zax.web.vo.response.SysOrgVO;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 

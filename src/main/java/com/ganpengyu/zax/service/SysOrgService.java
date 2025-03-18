@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * 组织服务
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */
@@ -37,6 +38,7 @@ public class SysOrgService {
 
     /**
      * 创建组织
+     *
      * @param org {@link SysOrg} 组织信息
      * @return {@link SysOrg} 组织信息
      */
@@ -55,6 +57,7 @@ public class SysOrgService {
 
     /**
      * 编辑组织信息。如果组织的父组织发生变动，会同步更新子孙组织的编码。
+     *
      * @param org {@link SysOrg} 组织信息
      * @return true 编辑成功
      */
@@ -104,6 +107,7 @@ public class SysOrgService {
 
     /**
      * 删除组织
+     *
      * @param orgId 组织 ID
      * @return true 删除成功
      */
@@ -119,6 +123,7 @@ public class SysOrgService {
 
     /**
      * 查找组织
+     *
      * @param id 组织 ID
      * @return {@link SysOrg} 组织信息
      */
@@ -130,6 +135,7 @@ public class SysOrgService {
 
     /**
      * 查找指定组织的子组织
+     *
      * @param id 组织 ID
      * @return {@link SysOrg} 子组织集合
      */
@@ -139,6 +145,7 @@ public class SysOrgService {
 
     /**
      * 查找指定组织的子孙组织
+     *
      * @param orgId 组织 ID
      * @return {@link SysOrgTree} 组织树
      */
@@ -154,6 +161,7 @@ public class SysOrgService {
 
     /**
      * 查找组织树。如果传入 0，表示查询所有的组织树。
+     *
      * @param rootOrgId 根组织 ID
      * @return {@link SysOrgTree} 组织树集合
      */
@@ -177,6 +185,7 @@ public class SysOrgService {
 
     /**
      * 查找指定组织所在的组织树
+     *
      * @param orgId 组织 ID
      * @return {@link SysOrgTree} 组织树
      */
@@ -190,6 +199,7 @@ public class SysOrgService {
 
     /**
      * 计算子孙组织的新编码
+     *
      * @param oldOrgCode 父组织旧编码
      * @param newOrgCode 父组织新编码
      * @return {@link SysOrg} 子孙组织集合
@@ -211,6 +221,7 @@ public class SysOrgService {
 
     /**
      * 生成组织编码
+     *
      * @param parentId 父组织 ID
      * @return 组织编码
      */

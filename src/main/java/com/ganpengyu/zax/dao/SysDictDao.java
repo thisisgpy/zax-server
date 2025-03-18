@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 数据字典
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/17
  */
@@ -15,6 +16,7 @@ public interface SysDictDao {
 
     /**
      * 新增字典
+     *
      * @param sysDict {@link SysDict} 字典信息
      * @return 影响行数
      */
@@ -22,6 +24,7 @@ public interface SysDictDao {
 
     /**
      * 更新字典
+     *
      * @param sysDict {@link SysDict} 字典信息
      * @return 影响行数
      */
@@ -29,13 +32,23 @@ public interface SysDictDao {
 
     /**
      * 查找字典
+     *
      * @param id 字典 ID
      * @return {@link SysDict} 字典信息
      */
     SysDict selectById(Integer id);
 
     /**
+     * 查找字典
+     *
+     * @param code 字典编码
+     * @return {@link SysDict} 字典信息
+     */
+    SysDict selectByCode(String code);
+
+    /**
      * 分页查询字典
+     *
      * @param sysDict {@link SysDict} 字典信息
      * @return 字典列表
      */
@@ -43,6 +56,7 @@ public interface SysDictDao {
 
     /**
      * 删除字典
+     *
      * @param id 字典 ID
      * @return 影响行数
      */

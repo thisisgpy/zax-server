@@ -1,17 +1,17 @@
-package com.ganpengyu.zax.model;
+package com.ganpengyu.zax.web.vo.response;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 /**
- * 数据字典项
+ * 字典项详情
  *
  * @author Pengyu Gan
- * CreateDate 2025/3/17
+ * CreateDate 2025/3/18
  */
 @Data
-public class SysDictItem {
+public class SysDictItemVO {
 
     /**
      * 字典项ID
@@ -77,4 +77,5 @@ public class SysDictItem {
      * 信息更新人
      */
     private String updateBy;
+
 }

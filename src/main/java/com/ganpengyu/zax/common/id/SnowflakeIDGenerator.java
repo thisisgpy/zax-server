@@ -7,6 +7,7 @@ import java.util.Random;
 
 /**
  * 雪花 ID 生成器
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */

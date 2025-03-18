@@ -49,7 +49,7 @@
         <include refid="Base_Column_List"/>
         from sys_dict_item
         where dict_id = #{dictId}
-          and is_enabled = true
+        and is_enabled = true
         order by sort
     </select>
 
@@ -58,7 +58,7 @@
         <include refid="Base_Column_List"/>
         from sys_dict_item
         where dict_code = #{dictCode}
-          and is_enabled = true
+        and is_enabled = true
         order by sort
     </select>
 
@@ -67,7 +67,7 @@
         <include refid="Base_Column_List"/>
         from sys_dict_item
         where parent_id = #{parentId}
-          and is_enabled = true
+        and is_enabled = true
         order by sort
     </select>
 
@@ -81,9 +81,9 @@
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ganpengyu.zax.model.SysDictItem">
         <!--@mbg.generated-->
         insert into sys_dict_item (dict_id, dict_code, `label`, `value`, `comment`, sort, parent_id,
-                                   create_time, create_by)
+        create_time, create_by)
         values (#{dictId}, #{dictCode}, #{label}, #{value}, #{comment}, #{sort}, #{parentId},
-                #{createTime}, #{createBy})
+        #{createTime}, #{createBy})
     </insert>
 
     <update id="updateSelective" parameterType="com.ganpengyu.zax.model.SysDictItem">
@@ -108,7 +108,7 @@
                 is_enabled = #{enabled},
             </if>
             update_time = #{updateTime},
-            update_by   = #{updateBy}
+            update_by = #{updateBy}
         </set>
         where id = #{id}
     </update>

@@ -36,6 +36,13 @@
         where id = #{id}
     </select>
 
+    <select id="selectByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict
+        where code = #{code}
+    </select>
+
     <select id="list" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -80,7 +87,7 @@
                 is_enabled = #{enabled},
             </if>
             update_time = #{updateTime},
-            update_by   = #{updateBy}
+            update_by = #{updateBy}
         </set>
         where id = #{id}
     </update>

@@ -4,6 +4,7 @@ import com.ganpengyu.zax.common.ZaxException;
 
 /**
  * 逻辑检查工具
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */

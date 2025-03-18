@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 /**
  * 数据字典
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/17
  */
@@ -13,47 +14,47 @@ import java.time.LocalDateTime;
 public class SysDict {
 
     /**
-    * 字典ID
-    */
+     * 字典ID
+     */
     private Integer id;
 
     /**
-    * 字典编码
-    */
+     * 字典编码
+     */
     private String code;
 
     /**
-    * 字典名称
-    */
+     * 字典名称
+     */
     private String name;
 
     /**
-    * 字典备注
-    */
+     * 字典备注
+     */
     private String comment;
 
     /**
-    * 是否启用. 0: 禁用, 1: 启用
-    */
+     * 是否启用. 0: 禁用, 1: 启用
+     */
     private boolean enabled;
 
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private LocalDateTime createTime;
 
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createBy;
 
     /**
-    * 信息更新时间
-    */
+     * 信息更新时间
+     */
     private LocalDateTime updateTime;
 
     /**
-    * 信息更新人
-    */
+     * 信息更新人
+     */
     private String updateBy;
 }

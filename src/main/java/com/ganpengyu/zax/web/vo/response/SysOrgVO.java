@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 /**
  * 组织详情
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/12
  */

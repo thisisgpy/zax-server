@@ -103,7 +103,7 @@
         <include refid="Base_Column_List"/>
         from sys_org
         where code like concat(#{code}, '%')
-          and code != #{code}
+        and code != #{code}
         order by create_time
     </select>
 </mapper>

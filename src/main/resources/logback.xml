@@ -22,7 +22,7 @@
         </triggeringPolicy>
     </appender>
 
-    <root level="INFO" >
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>

@@ -2,6 +2,7 @@ package com.ganpengyu.zax.common;
 
 /**
  * 统一业务异常
+ *
  * @author Pengyu Gan
  * CreateDate 2025/3/11
  */
