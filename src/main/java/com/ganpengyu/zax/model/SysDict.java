@@ -36,7 +36,7 @@ public class SysDict {
     /**
      * 是否启用. 0: 禁用, 1: 启用
      */
-    private boolean enabled;
+    private Boolean enabled;
 
     /**
      * 创建时间

@@ -24,6 +24,6 @@ public class SysDictSearchVO {
     /**
      * 是否启用. 0: 禁用, 1: 启用
      */
-    private boolean enabled;
+    private Boolean enabled;
 
 }

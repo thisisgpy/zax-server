@@ -6,6 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 /**
@@ -55,6 +56,12 @@ public class ZaxAspect {
      * @return {@link ZaxResult} 请求响应数据模型
      */
     private ZaxResult<?> handlerException(ProceedingJoinPoint pjp, Throwable e) {
+        if (e instanceof DataAccessException) {
+            String message = e.getMessage();
+            message = message.substring(message.indexOf("Cause"));
+            String caused = message.substring(0, message.indexOf("###"));
+            return ZaxResult.error(caused);
+        }
         return ZaxResult.error(e.getMessage());
     }
 
