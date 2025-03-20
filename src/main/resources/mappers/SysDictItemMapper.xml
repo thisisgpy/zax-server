@@ -53,6 +53,15 @@
         order by sort
     </select>
 
+    <select id="selectByDictIdAndItemParentId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_item
+        where dict_id = #{dictId}
+        and parent_id = #{parentId}
+        and is_enabled = true
+    </select>
+
     <select id="selectByDictCode" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

@@ -173,16 +173,6 @@ public class SysDictService {
     /**
      * 获取数据字典项列表
      *
-     * @param dictCode {@link String} 数据字典编码
-     * @return {@link List<SysDictItem>} 数据字典项列表
-     */
-    public List<SysDictItem> getItemsByDictCode(String dictCode) {
-        return sysDictItemDao.selectByDictCode(dictCode);
-    }
-
-    /**
-     * 获取数据字典项列表
-     *
      * @param parentId {@link Integer} 父级ID
      * @return {@link List<SysDictItem>} 数据字典项列表
      */
@@ -210,7 +200,7 @@ public class SysDictService {
      */
     public SysDictItemTree getDictItemTreeByDictId(Integer dictId) {
         SysDictItemTree root = new SysDictItemTree();
-        List<SysDictItemTree> children = getItemChildren(dictId);
+        List<SysDictItemTree> children = getItemChildren(dictId, 0);
         root.setChildren(children);
         return root;
     }
@@ -224,16 +214,16 @@ public class SysDictService {
     public SysDictItemTree getDictItemTreeByDictCode(String dictCode) {
         SysDict dict = getDictByCode(dictCode);
         SysDictItemTree root = new SysDictItemTree();
-        List<SysDictItemTree> children = getItemChildren(dict.getId());
+        List<SysDictItemTree> children = getItemChildren(dict.getId(), 0);
         root.setChildren(children);
         return root;
     }
 
-    private List<SysDictItemTree> getItemChildren(Integer dictId) {
-        List<SysDictItem> subItems = getItemsByParentId(dictId);
+    private List<SysDictItemTree> getItemChildren(Integer dictId, Integer itemParentId) {
+        List<SysDictItem> subItems = sysDictItemDao.selectByDictIdAndItemParentId(dictId, itemParentId);
         List<SysDictItemTree> children = dictItemBeanMapper.toSysDictItemTree(subItems);
         for (SysDictItemTree child : children) {
-            List<SysDictItemTree> c = getItemChildren(child.getId());
+            List<SysDictItemTree> c = getItemChildren(dictId, child.getId());
             child.setChildren(c);
         }
         return children;

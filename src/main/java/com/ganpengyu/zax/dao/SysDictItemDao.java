@@ -1,6 +1,7 @@
 package com.ganpengyu.zax.dao;
 
 import com.ganpengyu.zax.model.SysDictItem;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -51,6 +52,15 @@ public interface SysDictItemDao {
      * @return 字典项列表
      */
     List<SysDictItem> selectByDictId(Integer dictId);
+
+    /**
+     * 根据字典 ID 和字典项 parentId 查询字典项
+     *
+     * @param dictId   字典 ID
+     * @param parentId 字典项 parentId
+     * @return 字典项列表
+     */
+    List<SysDictItem> selectByDictIdAndItemParentId(@Param("dictId") Integer dictId, @Param("parentId") Integer parentId);
 
     /**
      * 根据字典代码查找字典项

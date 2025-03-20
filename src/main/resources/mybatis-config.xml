@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <!--    <plugins>-->
-    <!--        <plugin interceptor="io.buyan.jcrash.oap.common.page.PageInterceptor"></plugin>-->
-    <!--    </plugins>-->
+    <plugins>
+        <plugin interceptor="com.ganpengyu.zax.common.page.PageInterceptor"></plugin>
+    </plugins>
 </configuration>

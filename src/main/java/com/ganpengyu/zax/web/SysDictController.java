@@ -109,20 +109,6 @@ public class SysDictController {
         return ZaxResult.ok(sysDictItemVO);
     }
 
-    @GetMapping(value = "/item/list/id/{dictId}")
-    public ZaxResult<List<SysDictItemVO>> listDictItem(@PathVariable("dictId") Integer dictId) {
-        List<SysDictItem> itemsByDictId = sysDictService.getItemsByDictId(dictId);
-        List<SysDictItemVO> sysDictItemVOs = dictItemBeanMapper.toSysDictItemVOs(itemsByDictId);
-        return ZaxResult.ok(sysDictItemVOs);
-    }
-
-    @GetMapping(value = "/item/list/code/{dictCode}")
-    public ZaxResult<List<SysDictItemVO>> listDictItem(@PathVariable("dictCode") String dictCode) {
-        List<SysDictItem> itemsByDictId = sysDictService.getItemsByDictCode(dictCode);
-        List<SysDictItemVO> sysDictItemVOs = dictItemBeanMapper.toSysDictItemVOs(itemsByDictId);
-        return ZaxResult.ok(sysDictItemVOs);
-    }
-
     @GetMapping(value = "/item/sub/{parentId}")
     public ZaxResult<List<SysDictItemVO>> listSubDictItem(@PathVariable("parentId") Integer parentId) {
         List<SysDictItem> itemsByDictId = sysDictService.getItemsByParentId(parentId);
